@@ -4,7 +4,7 @@ require 'auth_check.php';
 require 'db_connection.php';
 
 $stmt = $conn->prepare("SELECT id, fullname FROM users WHERE id != ?");
-$stmt->bind_param("i", $_SESSION[`user_id`]);
+$stmt->bind_param("i", $_SESSION['user_id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $users = $result->fetch_all(MYSQLI_ASSOC);

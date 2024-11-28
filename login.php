@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Employee commendation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
 </head>
 <body>
 <nav class="navbar navbar-expand bg-body-tertiary">
@@ -13,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <?php
-                if(isset($_SESSION[`user_id`])):
+                if(isset($_SESSION['user_id'])):
                     ?>
                     <li class="nav-item">
                         <a class="nav-link" href="vote.php">Vote!</a>
@@ -37,7 +38,7 @@
 
 <main>
     <div class="p-4 m-4 d-flex flex-column">
-        <form method="POST" action="login_logic.php" class="row g-3 d-flex flex-column align-items-center">
+        <form id="loginForm" method="POST" action="login_logic.php" class="row g-3 d-flex flex-column align-items-center">
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email">
