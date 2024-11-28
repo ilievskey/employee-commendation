@@ -1,5 +1,3 @@
-<!--logout logic-->
-
 <?php
 
 session_start();

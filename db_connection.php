@@ -1,5 +1,3 @@
-<!--db conn-->
-
 <?php
 $host = 'localhost';
 $db_name = 'employee_commendation';

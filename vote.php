@@ -55,8 +55,6 @@ $categories = $category_result->fetch_all(MYSQLI_ASSOC);
     </div>
 </nav>
 <main>
-
-
     <div class="p-4 m-4 d-flex flex-column">
         <form id="commendationForm" class="row g-3 d-flex flex-column align-items-center">
             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">

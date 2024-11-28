@@ -9,12 +9,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $category_id = $_POST['category'];
     $comment = trim($_POST['comment']);
 
-    error_log("Session user_id: " . $_SESSION['user_id']); // Debugging line
-    error_log("Form user_id: " . $voter_id); // Debugging line
-
-
     if(empty($nominee_id) || empty($category_id) || empty($comment)){
         echo json_encode(['success' => false, 'message' => 'All fields are required.']);
+        exit();
+    }
+
+    if($nominee_id == $voter_id){
+        echo json_encode(['success' => false, 'message' => 'Nice try. You cannot commend yourself!']);
+        exit();
     }
 
     $stmt = $conn->prepare(

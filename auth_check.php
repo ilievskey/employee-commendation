@@ -1,5 +1,3 @@
-<!--redirect to login if not auth-->
-
 <?php
 session_start();
 
