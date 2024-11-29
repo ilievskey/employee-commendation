@@ -36,7 +36,7 @@ $categories = $category_result->fetch_all(MYSQLI_ASSOC);
                 if(isset($_SESSION['user_id'])):
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="vote.php">Vote!</a>
+                        <a class="nav-link active" href="vote.php">Vote!</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Log out</a>

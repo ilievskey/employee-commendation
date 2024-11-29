@@ -27,6 +27,7 @@ $active_users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Employee commendation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand bg-body-tertiary">
@@ -58,38 +59,42 @@ $active_users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </nav>
 <main>
     <div class="container">
-        <div class="row gap-1 justify-content-center">
-            <?php foreach ($leaders as $category => $leader): ?>
-            <div class="card col-md-6">
-                <div class="card-body">
-                    <h2 class="card-title"><?= htmlspecialchars($category); ?></h2>
-                    <?php if ($leader): ?>
-                    <p class="card-text">
-                        <?= htmlspecialchars($leader['fullname']); ?><br>
-                        <small><?= $leader['count']; ?> commendations</small>
-                    </p>
-                    <?php else: ?>
-                    <p class="card-text text-muted">No commendations yet</p>
-                    <?php endif; ?>
-                </div>
+        <div class="cards-cc">
+            <div class="row justify-content-center g-3">
+                <?php foreach ($leaders as $category => $leader): ?>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title"><?= htmlspecialchars($category); ?></h2>
+                                <?php if ($leader): ?>
+                                    <p class="card-text">
+                                        <?= htmlspecialchars($leader['fullname']); ?><br>
+                                        <small><?= $leader['count']; ?> commendations</small>
+                                    </p>
+                                <?php else: ?>
+                                    <p class="card-text text-muted">No commendations yet</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
-        </div>
 
-        <div class="mt-5">
-            <h3>Most commendations given away:</h3>
-            <?php if (!empty($active_users)): ?>
-                <ul class="list-group">
-                    <?php foreach ($active_users as $user): ?>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <?= htmlspecialchars($user['fullname']); ?>
-                            <span class="badge bg-primary rounded"><?= $user['votes_given']; ?> votes given</span>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p class="text-muted">No commendations given away yet.</p>
-            <?php endif; ?>
+            <div class="mt-5">
+                <h3>Most commendations given away:</h3>
+                <?php if (!empty($active_users)): ?>
+                    <ul class="list-group">
+                        <?php foreach ($active_users as $user): ?>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <?= htmlspecialchars($user['fullname']); ?>
+                                <span class="badge bg-primary rounded"><?= $user['votes_given']; ?> votes given</span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <p class="text-muted">No commendations given away yet.</p>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </main>

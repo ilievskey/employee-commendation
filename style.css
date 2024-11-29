@@ -1,0 +1,8 @@
+.cards-cc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60vh;
+}
+
+/*# sourceMappingURL=style.css.map */

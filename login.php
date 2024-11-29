@@ -26,7 +26,7 @@
                 else:
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Log in</a>
+                        <a class="nav-link active" href="login.php">Log in</a>
                     </li>
                 <?php
                 endif;
