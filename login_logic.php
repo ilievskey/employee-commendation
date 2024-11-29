@@ -5,12 +5,13 @@ require 'db_connection.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     //alloc
-    $email = $_POST['email'];
-    $password = $_POST['pass'];
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['pass'] ?? '';
 
     //mail validation
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        die("Invalid email format");
+        echo json_encode(['success' => false, 'message' => 'Invalid email format.']);
+        exit();
     }
 
     $stmt = $conn->prepare("SELECT id, fullname, pass FROM users WHERE email = ?");
@@ -24,10 +25,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['fullname'];
 
-        header("Location: index.php");
+        echo json_encode(['success' => true]);
         exit();
     } else{
-        echo "invalid credentials";
+        echo json_encode(['success' => false, 'message' => 'Invalid credentials.']);
+        exit();
     }
 
 }

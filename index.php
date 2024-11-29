@@ -67,10 +67,10 @@ $active_users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                             <div class="card-body">
                                 <h2 class="card-title"><?= htmlspecialchars($category); ?></h2>
                                 <?php if ($leader): ?>
-                                    <p class="card-text">
-                                        <?= htmlspecialchars($leader['fullname']); ?><br>
-                                        <small><?= $leader['count']; ?> commendations</small>
-                                    </p>
+                                <h5 class="card-text">
+                                    <?= htmlspecialchars($leader['fullname']); ?><br>
+                                </h5>
+                                <p><small><?= $leader['count']; ?> commendations</small></p>
                                 <?php else: ?>
                                     <p class="card-text text-muted">No commendations yet</p>
                                 <?php endif; ?>
@@ -81,7 +81,7 @@ $active_users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             </div>
 
             <div class="mt-5">
-                <h3>Most commendations given away:</h3>
+                <h3>Commendations leaderboard:</h3>
                 <?php if (!empty($active_users)): ?>
                     <ul class="list-group">
                         <?php foreach ($active_users as $user): ?>

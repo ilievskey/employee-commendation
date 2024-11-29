@@ -32,3 +32,26 @@ $('#commendationForm').on('submit', function (e){
         }
     });
 });
+
+$('#loginForm').on('submit', function (e) {
+    e.preventDefault();
+
+    $('#formError').text('');
+
+    $.ajax({
+        url: 'login_logic.php',
+        type: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function (response) {
+            if (response.success) {
+                window.location.href = 'index.php';
+            } else {
+                $('#formError').text(response.message);
+            }
+        },
+        error: function () {
+            $('#formError').text('Form error. Please try again later.');
+        }
+    });
+});
