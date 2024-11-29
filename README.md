@@ -17,9 +17,9 @@ Simple webpage which lets employees commend eachother, boosting positivity
 
 ## Instructions
 - When using XAMPP make sure to put the project folder in the htdocs folder
+- Create a database with the name `employee_commendation`
 - Import the database provided in the db folder named `employee_commendation.sql`
-- Make sure the database name is `employee_commendation`
-- Go to `localhost:8000` (or the port you were assigned with)
+- Go to `localhost/employee-commendation`
 
 ## Credentials
 - **Tom Clancy** `tom@company.com` : `clancy123`
